@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+medata:
+  name: mymlapp
+  labels:
+    app: web
+spec:
+  replicas: 2
+  matchLabels:
+    app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: predictor
+          image: aktastuna/mymlapp
+          ports:
+            - containerPort: 80
